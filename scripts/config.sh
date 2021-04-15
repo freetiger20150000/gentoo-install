@@ -28,7 +28,7 @@ source "$GENTOO_INSTALL_REPO_DIR/scripts/internal_config.sh" || exit 1
 #   type=[efi|bios]       Selects the boot type. Defaults to efi if not given.
 #   luks=[true|false]     Encrypt root partition. Defaults to false if not given.
 #   root_fs=[ext4|btrfs]  Root filesystem
-#create_single_disk_layout swap=8GiB type=efi luks=true root_fs=ext4 /dev/sdX
+create_single_disk_layout swap=2GiB type=efi luks=true root_fs=ext4 /dev/sda
 
 # 2. create_raid0_luks_layout
 #
@@ -62,7 +62,7 @@ source "$GENTOO_INSTALL_REPO_DIR/scripts/internal_config.sh" || exit 1
 #                              to false if not given.
 #   raid_type=[raid0|raid1]    Select raid type. Defaults to raid0.
 #create_btrfs_raid_layout swap=8GiB luks=false raid_type=raid0 /dev/sd{X,Y}
-create_btrfs_raid_layout swap=8GiB luks=true /dev/sdX
+#create_btrfs_raid_layout swap=8GiB luks=true /dev/sdX
 
 
 ################################################
@@ -139,8 +139,8 @@ luks_getkeyfile() {
 HOSTNAME="gentoo"
 
 # The timezone for the new system
-TIMEZONE="Europe/London"
-#TIMEZONE="Europe/Berlin"
+#TIMEZONE="Europe/London"
+#TIMEZONE="Asia/Shanghai"
 
 # The default keymap for the system
 KEYMAP="us"
@@ -162,7 +162,14 @@ LOCALE="C.utf8"
 # de_DE ISO-8859-1
 # de_DE@euro ISO-8859-15
 # " # End of LOCALES
-# LOCALE="de_DE.utf8"
+
+LOCALES="
+en_US.UTF-8 UTF-8
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+" # End of LOCALES
+
 
 
 ################################################
