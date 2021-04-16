@@ -28,7 +28,7 @@ source "$GENTOO_INSTALL_REPO_DIR/scripts/internal_config.sh" || exit 1
 #   type=[efi|bios]       Selects the boot type. Defaults to efi if not given.
 #   luks=[true|false]     Encrypt root partition. Defaults to false if not given.
 #   root_fs=[ext4|btrfs]  Root filesystem
-create_single_disk_layout swap=2GiB type=efi luks=true root_fs=ext4 /dev/sda
+create_single_disk_layout swap=2GiB type=efi luks=false root_fs=ext4 /dev/sda
 
 # 2. create_raid0_luks_layout
 #
@@ -152,10 +152,11 @@ KEYMAP_INITRAMFS="$KEYMAP"
 # A list of additional locales to generate. You should only
 # add locales here if you really need them and want to localize
 # your system. Otherwise, leave this list empty, and use C.utf8.
-LOCALES=""
+# LOCALES=""
 # The locale to set for the system. Be careful, this setting differs from the LOCALES
 # list entries (e.g. .UTF-8 vs .utf8). Use the name as shown in `eselect locale`.
-LOCALE="C.utf8"
+# LOCALE="C.utf8"
+
 # For a german system you could use:
 # LOCALES="
 # de_DE.UTF-8 UTF-8
@@ -176,8 +177,8 @@ zh_CN.UTF-8 UTF-8
 # Gentoo configuration
 
 # The selected gentoo mirror
-GENTOO_MIRROR="https://mirror.eu.oneandone.net/linux/distributions/gentoo/gentoo"
-#GENTOO_MIRROR="https://distfiles.gentoo.org"
+# GENTOO_MIRROR="https://mirror.eu.oneandone.net/linux/distributions/gentoo/gentoo"
+GENTOO_MIRROR="https://distfiles.gentoo.org"
 
 # The architecture of the target system (only tested with amd64)
 GENTOO_ARCH="amd64"
@@ -226,4 +227,4 @@ ANSIBLE_SSH_AUTHORIZED_KEYS=""
 
 # To prove that you have read and edited the config
 # properly, set the following value to true.
-I_HAVE_READ_AND_EDITED_THE_CONFIG_PROPERLY=false
+I_HAVE_READ_AND_EDITED_THE_CONFIG_PROPERLY=true
